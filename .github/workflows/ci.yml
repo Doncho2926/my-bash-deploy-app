@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧱 Клониране на кода
+        uses: actions/checkout@v3
+
+      - name: 🛠️ Дава права на Bash скрипта
+        run: chmod +x ci_pipeline.sh
+
+      - name: 🚀 Стартиране на CI/CD скрипта
+        run: ./ci_pipeline.sh
